@@ -6,7 +6,19 @@ interface HeaderProps {
   theme: ReturnType<typeof useTheme>
 }
 
+declare global {
+  interface Window {
+    electronAPI?: {
+      minimize: () => void
+      maximize: () => void
+      close: () => void
+    }
+  }
+}
+
 export default function Header({ theme }: HeaderProps) {
+  const isElectron = typeof window.electronAPI !== 'undefined'
+
   return (
     <header className={styles.header}>
       <div className={styles.inner}>
@@ -42,6 +54,20 @@ export default function Header({ theme }: HeaderProps) {
               </svg>
             )}
           </button>
+
+          {isElectron && (
+            <div className={styles.winControls}>
+              <button className={styles.winBtn} onClick={() => window.electronAPI!.minimize()} title="最小化">
+                <svg width="12" height="12" viewBox="0 0 12 12"><rect y="5" width="12" height="1.5" fill="currentColor" /></svg>
+              </button>
+              <button className={styles.winBtn} onClick={() => window.electronAPI!.maximize()} title="最大化">
+                <svg width="12" height="12" viewBox="0 0 12 12"><rect x="1" y="1" width="10" height="10" stroke="currentColor" strokeWidth="1.5" fill="none" /></svg>
+              </button>
+              <button className={`${styles.winBtn} ${styles.closeBtn}`} onClick={() => window.electronAPI!.close()} title="关闭">
+                <svg width="12" height="12" viewBox="0 0 12 12"><line x1="1" y1="1" x2="11" y2="11" stroke="currentColor" strokeWidth="1.5" /><line x1="11" y1="1" x2="1" y2="11" stroke="currentColor" strokeWidth="1.5" /></svg>
+              </button>
+            </div>
+          )}
         </nav>
       </div>
       <div className={styles.gradientBar} />

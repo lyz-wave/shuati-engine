@@ -7,7 +7,7 @@ interface Props {
   windowRange?: [number, number]
 }
 
-export default function PointerVisualizer({ nums, highlights, pointers, windowRange }: Props) {
+export default function PointerVisualizer({ nums = [], highlights = [], pointers, windowRange }: Props) {
   return (
     <div className={styles.arrayContainer}>
       {windowRange && (

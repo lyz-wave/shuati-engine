@@ -2,10 +2,6 @@
 
 > 按算法范式分类，可视化理解每道题 — 傻子都能看懂的题解
 
-## 🚀 在线地址
-
-> [leetcode-hot100.vercel.app](https://leetcode-hot100.vercel.app)（待部署）
-
 ## 📖 项目简介
 
 将 LeetCode Hot 100 热门题目按 **15 种算法范式** 分类，每道题提供：
@@ -14,6 +10,14 @@
 - **步骤式动画演示** — 5 种 Visualizer（数组、双指针、链表、树、矩阵）
 - **运算过程追踪表** — 每一步变量变化一目了然
 - **暗/亮主题切换** — 代码风格编辑器暗色背景
+
+## 💻 多平台支持
+
+| 平台 | 安装方式 | 文件 |
+|------|---------|------|
+| Web | 浏览器访问 | [在线地址]() |
+| Windows | 下载安装包 | `LeetCodeHot100.exe` |
+| Android | 下载 APK | `app-debug.apk` |
 
 ## 🧩 分类体系
 
@@ -38,7 +42,8 @@
 | 路由 | React Router v6 |
 | 样式 | CSS Modules + CSS Variables |
 | 动画 | DOM + CSS Transition |
-| 移动端 | Capacitor（Android APK） |
+| 桌面端 | Electron (frameless) |
+| 移动端 | Capacitor (Android) |
 
 ## 📁 项目结构
 
@@ -57,7 +62,7 @@ src/
 │   ├── Visualizer/          # 动画引擎 (5 种 Visualizer)
 │   ├── CodeBlock/           # C++/Rust 代码切换
 │   ├── Walkthrough/         # 运算过程表格
-│   └── Layout/              # Header + 主题切换
+│   └── Layout/              # 标题栏 + 主题切换
 └── pages/
     ├── Home.tsx             # 首页分类列表
     ├── Category.tsx         # 分类题目列表
@@ -68,23 +73,30 @@ src/
 
 ```bash
 npm install
-npm run dev        # 启动开发服务器 (http://localhost:5173)
+npm run dev        # 启动开发服务器
 npm run build      # 构建生产版本
-npm run preview    # 预览构建结果
 ```
+
+## 💻 构建 Windows 桌面应用
+
+```bash
+npm run build
+npm run electron:build
+# 输出: release/LeetCodeHot100-win32-x64/LeetCodeHot100.exe
+```
+
+> 无边框窗口、原生拖拽标题栏、窗口控制按钮，原生桌面应用体验。
 
 ## 📱 构建 Android APK
 
 ```bash
-npm install
 npm run build
 npx cap sync android
-cd android
-./gradlew assembleDebug
+cd android && ./gradlew assembleDebug
 # APK: android/app/build/outputs/apk/debug/app-debug.apk
 ```
 
-> 需要 JDK 21 和 Android SDK。Android Studio 可选。
+> 需要 JDK 21 和 Android SDK。
 
 ## 🎨 设计特点
 

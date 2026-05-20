@@ -18,6 +18,14 @@ export default function Visualizer({ steps, visualizerType }: Props) {
   const [playing, setPlaying] = useState(false)
   const timerRef = useRef<number | null>(null)
 
+  if (!steps || steps.length === 0) {
+    return (
+      <div className={styles.visualizer}>
+        <p className={styles.description}>暂无动画数据</p>
+      </div>
+    )
+  }
+
   const step = steps[currentStep] || steps[0]
   const data = step?.data ?? {}
   const highlights = step?.highlights ?? []

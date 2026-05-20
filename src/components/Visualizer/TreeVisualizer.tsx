@@ -33,7 +33,7 @@ function getLevels(node: TreeNode | null): (number | null)[][] {
   return levels
 }
 
-export default function TreeVisualizer({ root, highlights }: Props) {
+export default function TreeVisualizer({ root, highlights = [] }: Props) {
   const levels = getLevels(root)
   return (
     <div className={styles.treeContainer}>

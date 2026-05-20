@@ -6,7 +6,7 @@ interface Props {
   pointers?: { label: string; pos: number }[]
 }
 
-export default function ArrayVisualizer({ nums, highlights, pointers }: Props) {
+export default function ArrayVisualizer({ nums = [], highlights = [], pointers }: Props) {
   return (
     <div className={styles.arrayContainer}>
       <div className={styles.pointerRow}>

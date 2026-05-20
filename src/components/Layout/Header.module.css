@@ -3,15 +3,18 @@
   position: sticky;
   top: 0;
   z-index: 100;
+  -webkit-app-region: drag;
+  user-select: none;
 }
 
 .inner {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 14px 24px;
+  padding: 8px 24px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  min-height: 40px;
 }
 
 .gradientBar {
@@ -26,36 +29,37 @@
   gap: 10px;
   text-decoration: none;
   color: var(--text);
+  -webkit-app-region: no-drag;
 }
 .logo:hover { opacity: 1; }
 
 .logoIcon {
-  width: 34px;
-  height: 34px;
+  width: 30px;
+  height: 30px;
   background: linear-gradient(135deg, #6366f1, #8b5cf6);
-  border-radius: 10px;
+  border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #fff;
   box-shadow: 0 2px 8px rgba(99, 102, 241, 0.3);
-  animation: pulse-glow 3s ease-in-out infinite;
 }
 
 .logoText {
   font-weight: 800;
-  font-size: 17px;
+  font-size: 16px;
   letter-spacing: -0.3px;
 }
 
 .nav {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 14px;
+  -webkit-app-region: no-drag;
 }
 
 .navHint {
-  font-size: 13px;
+  font-size: 12px;
   color: var(--text-muted);
   font-weight: 450;
   letter-spacing: 0.3px;
@@ -63,14 +67,14 @@
 
 .divider {
   width: 1px;
-  height: 18px;
+  height: 16px;
   background: var(--border);
 }
 
 .themeBtn {
-  width: 36px;
-  height: 36px;
-  border-radius: 10px;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -85,10 +89,40 @@
   border-color: var(--accent);
 }
 
+/* Window controls (Electron frameless) */
+.winControls {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  margin-left: 4px;
+}
+
+.winBtn {
+  width: 36px;
+  height: 28px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  transition: background 0.15s;
+  border: none;
+}
+.winBtn:hover {
+  background: var(--bg-secondary);
+  color: var(--text);
+}
+
+.closeBtn:hover {
+  background: #e81123;
+  color: #fff;
+}
+
 @media (max-width: 480px) {
-  .inner { padding: 12px 14px; }
+  .inner { padding: 8px 14px; }
   .navHint { display: none; }
-  .logoText { font-size: 15px; }
-  .logoIcon { width: 30px; height: 30px; }
-  .logoIcon svg { width: 15px; height: 15px; }
+  .logoText { font-size: 14px; }
+  .logoIcon { width: 26px; height: 26px; }
+  .logoIcon svg { width: 14px; height: 14px; }
+  .winBtn { width: 32px; height: 26px; }
 }

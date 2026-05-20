@@ -53,7 +53,7 @@
   --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.4);
 }
 
-/* Dot grid background */
+/* Dot grid background — very subtle */
 body::before {
   content: '';
   position: fixed;
@@ -62,7 +62,7 @@ body::before {
   z-index: 0;
   background-image: radial-gradient(var(--dot) 1px, transparent 1px);
   background-size: 32px 32px;
-  opacity: 0.6;
+  opacity: 0.4;
 }
 
 /* Base reset */
@@ -84,6 +84,9 @@ body {
   transition: background 0.4s ease, color 0.4s ease;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  user-select: none;
+  -webkit-user-select: none;
+  cursor: default;
 }
 
 #root {
@@ -108,6 +111,12 @@ button {
   background: none;
   font: inherit;
   color: inherit;
+}
+
+/* Allow text selection only in code blocks */
+pre, code, .ioInfo {
+  user-select: text;
+  -webkit-user-select: text;
 }
 
 ::selection {

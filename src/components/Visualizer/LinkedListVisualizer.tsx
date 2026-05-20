@@ -17,7 +17,7 @@ function flatten(node: ListNode | null): number[] {
   return result
 }
 
-export default function LinkedListVisualizer({ head, highlights, pointers }: Props) {
+export default function LinkedListVisualizer({ head, highlights = [], pointers }: Props) {
   const values = flatten(head)
   return (
     <div className={styles.arrayContainer}>

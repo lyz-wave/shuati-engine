@@ -5,7 +5,7 @@ interface Props {
   highlights: number[]
 }
 
-export default function MatrixVisualizer({ matrix, highlights }: Props) {
+export default function MatrixVisualizer({ matrix = [], highlights = [] }: Props) {
   const flatIdx = (r: number, c: number) => r * (matrix[0]?.length ?? 1) + c
   return (
     <div className={styles.matrixContainer}>
