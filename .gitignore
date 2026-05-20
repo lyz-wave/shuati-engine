@@ -1,0 +1,73 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Build output
+dist/
+build/
+
+# Environment & secrets
+.env
+.env.*
+!.env.example
+!.env.template
+*.local
+*.local.*
+credentials.json
+service-account.json
+service_account.json
+*.pem
+*.key
+*.p12
+*.pfx
+secrets/
+
+# IDE & editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+project/
+.vs/
+
+# OS files
+Thumbs.db
+Desktop.ini
+.DS_Store
+ehthumbs.db
+
+# Logs & temp
+*.log
+*.tmp
+.temp/
+
+# Capacitor / Android
+.gradle/
+android/.gradle/
+android/build/
+android/local.properties
+android/captures/
+android/app/build/
+.android/
+local.properties
+
+# Superpowers brainstorming data
+.superpowers/
+
+# TypeScript
+*.tsbuildinfo
+
+# Coverage
+coverage/
+.nyc_output/
+
+# Misc
+.cache/
+.env/
