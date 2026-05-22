@@ -1,7 +1,5 @@
 # Dependencies
 node_modules/
-.pnp
-.pnp.js
 
 # Build output
 dist/
@@ -50,18 +48,16 @@ ehthumbs.db
 *.tmp
 .temp/
 
-# Capacitor / Android
-.gradle/
-android/.gradle/
-android/build/
-android/local.properties
-android/captures/
-android/app/build/
-.android/
-local.properties
+# Android (regenerated with: npx cap add android)
+android/
+!.android/
 
-# Superpowers brainstorming data
+# Superpowers / planning artifacts
 .superpowers/
+docs/superpowers/
+task_plan.md
+findings.md
+progress.md
 
 # TypeScript
 *.tsbuildinfo
@@ -70,6 +66,8 @@ local.properties
 coverage/
 .nyc_output/
 
+# Capacitor config (auto-generated, keep capacitor.config.ts)
+capacitor.config.json
+
 # Misc
 .cache/
-.env/
